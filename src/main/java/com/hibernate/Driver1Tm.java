@@ -1,0 +1,93 @@
+package com.hibernate;
+
+import java.util.List;
+
+import com.entity.Account;
+import com.entity.Bank;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+
+public class Driver1Tm {
+
+	public static void main(String[] args) {
+
+		// setup connection to DB
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("zeeshan");
+
+		System.out.println(factory);
+
+		// to perform crud operation
+		EntityManager manager = factory.createEntityManager();
+//				System.out.println(manager + " database created");
+
+		// commit
+		EntityTransaction transaction = manager.getTransaction();
+
+//************************insert******************************
+//
+//		Bank bank = new Bank();
+//		bank.setBid(2);
+//		bank.setBname("SBI");
+////
+//		Account ac1 = new Account();
+//		ac1.setAcid(203);
+//		ac1.setAcname("Crark Kent");
+//		ac1.setAcbal(560000);
+//
+//		Account ac2 = new Account();
+//		ac2.setAcid(204);
+//		ac2.setAcname("Allen Cooper");
+//		ac2.setAcbal(63000);
+////
+//		List<Account> accounts = new ArrayList<Account>();
+//		accounts.add(ac1);
+//		accounts.add(ac2);
+//
+////
+//		transaction.begin();
+//		bank.setAccounts(accounts);
+//		manager.persist(ac1);
+//		manager.persist(ac2);
+//		manager.merge(bank);
+//
+//		transaction.commit();
+
+//********************************fetch***********************
+//		Bank b = manager.find(Bank.class, 0);
+////		Account a = manager.find(Account.class, 101);
+//		if (b != null) {
+//			transaction.begin();
+//			b.setBname("AXIS");
+//			b.setBid(3);
+//			manager.merge(b);
+//			transaction.commit();
+//			System.out.println(b);
+//			System.out.println("-------------------------------------------------------");
+//			List<Account> accs = b.getAccounts();
+//			for (Account acc : accs) {
+//				System.out.println(acc);
+//			}
+
+//		}
+		Account acc = new Account();
+		acc.setAcid(201);
+		acc.setAcname("Barry Allen");
+		acc.setAcbal(49531);
+
+		transaction.begin();
+		Bank b = manager.find(Bank.class, 2);
+		if (b != null) {
+
+			List<Account> accs = b.getAccounts();
+			accs.add(acc);
+			b.setAccounts(accs);
+			manager.merge(b);
+			transaction.commit();
+		}
+
+	}
+
+}
