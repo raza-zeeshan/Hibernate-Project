@@ -1,7 +1,5 @@
 package com.hibernate;
 
-import java.util.List;
-
 import com.entity.Account;
 import com.entity.Bank;
 
@@ -31,7 +29,7 @@ public class Driver1Tm {
 //		Bank bank = new Bank();
 //		bank.setBid(2);
 //		bank.setBname("SBI");
-////
+//
 //		Account ac1 = new Account();
 //		ac1.setAcid(203);
 //		ac1.setAcname("Crark Kent");
@@ -72,18 +70,35 @@ public class Driver1Tm {
 //			}
 
 //		}
-		Account acc = new Account();
-		acc.setAcid(201);
-		acc.setAcname("Barry Allen");
-		acc.setAcbal(49531);
+
+//********************add account in exixting Bank**********************
+
+//		Account acc = new Account();
+//		acc.setAcid(202);
+//		acc.setAcname("Mark Raffalo");
+//		acc.setAcbal(49531);
+//
+//		transaction.begin();
+//		Bank b = manager.find(Bank.class, 2);
+//		if (b != null) {
+//
+//			List<Account> accs = b.getAccounts();
+//			accs.add(acc);
+//			b.setAccounts(accs);
+//			manager.merge(b);
+//			transaction.commit();
+//		}
+
+//********************remove-bank************************
 
 		transaction.begin();
 		Bank b = manager.find(Bank.class, 2);
-		if (b != null) {
 
-			List<Account> accs = b.getAccounts();
-			accs.add(acc);
-			b.setAccounts(accs);
+		if (b != null) {
+			Account account = manager.find(Account.class, 201);
+			if (account != null)
+				b.getAccounts().remove(account);
+			manager.remove(account);
 			manager.merge(b);
 			transaction.commit();
 		}
