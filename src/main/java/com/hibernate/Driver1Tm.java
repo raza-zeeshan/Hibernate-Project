@@ -1,5 +1,7 @@
 package com.hibernate;
 
+import java.util.List;
+
 import com.entity.Account;
 import com.entity.Bank;
 
@@ -73,35 +75,45 @@ public class Driver1Tm {
 
 //********************add account in exixting Bank**********************
 
-//		Account acc = new Account();
-//		acc.setAcid(202);
-//		acc.setAcname("Mark Raffalo");
-//		acc.setAcbal(49531);
-//
-//		transaction.begin();
-//		Bank b = manager.find(Bank.class, 2);
-//		if (b != null) {
-//
-//			List<Account> accs = b.getAccounts();
-//			accs.add(acc);
-//			b.setAccounts(accs);
-//			manager.merge(b);
-//			transaction.commit();
-//		}
-
-//********************remove-bank************************
+		Account acc = new Account();
+		acc.setAcid(104);
+		acc.setAcname("Muskan M");
+		acc.setAcbal(29645);
 
 		transaction.begin();
-		Bank b = manager.find(Bank.class, 2);
-
+		Bank b = manager.find(Bank.class, 1);
 		if (b != null) {
-			Account account = manager.find(Account.class, 201);
-			if (account != null)
-				b.getAccounts().remove(account);
-			manager.remove(account);
+
+			List<Account> accs = b.getAccounts();
+			accs.add(acc);
+			b.setAccounts(accs);
 			manager.merge(b);
 			transaction.commit();
 		}
+
+//***********************removing bank removes accounts**********************
+
+//		transaction.begin();
+//		Bank b = manager.find(Bank.class, 2);
+//
+//		if (b != null) {
+//			manager.remove(b);
+//			transaction.commit();
+//		}
+
+//********************remove-individual-accounts************************
+
+//		transaction.begin();
+//		Bank b = manager.find(Bank.class, 2);
+//
+//		if (b != null) {
+//			Account account = manager.find(Account.class, 201);
+//			if (account != null)
+//				b.getAccounts().remove(account);
+//			manager.remove(account);
+//			manager.merge(b);
+//			transaction.commit();
+//		}
 
 	}
 
