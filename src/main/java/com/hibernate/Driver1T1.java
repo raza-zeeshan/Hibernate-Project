@@ -28,13 +28,13 @@ public class Driver1T1 {
 //************************insert******************************
 
 		Car car = new Car();
-		car.setId(103);
+		car.setId(10001);
 		car.setName("TATA");
 		car.setPrice(989000);
 
 		Engine engine = new Engine();
 		car.setEngine(engine);
-		engine.setEid(1003);
+		engine.setEid(1000001);
 		engine.setFuel("EV");
 		engine.setCc(4800);
 
@@ -45,39 +45,39 @@ public class Driver1T1 {
 
 //************************fetch***********************
 
-		Car c1 = manager.find(Car.class, 102);
-		if (c1 != null) {
-			System.out.println(c1);
-			Engine e1 = c1.getEngine();
-			System.out.println(e1);
-		}
-//************************Deleting engine*********************
-		transaction.begin();
-		Engine e = manager.find(Engine.class, 1001);
-		Car car = manager.find(Car.class, 101);
-		if (car != null) {
-			Engine e1 = car.getEngine();
-			car.setEngine(null);
-			manager.remove(car);
-			transaction.commit();
-		}
-
-//*************************Deleting car*********************
-		transaction.begin();
-		Car car1 = manager.find(Car.class, 101);
-		if (car != null) {
-			manager.remove(car1);
-			transaction.commit();
-		}
-
-		transaction.begin();
-		Car c2 = manager.find(Car.class, 102);
-		if (c2 != null) {
-			c2.setPrice(1209999);
-			Engine e2 = c2.getEngine();
-			e2.setFuel("Hybrid");
-			transaction.commit();
-		}
+//		Car c1 = manager.find(Car.class, 102);
+//		if (c1 != null) {
+//			System.out.println(c1);
+//			Engine e1 = c1.getEngine();
+//			System.out.println(e1);
+//		}
+////************************Deleting engine*********************
+//		transaction.begin();
+//		Engine e = manager.find(Engine.class, 1001);
+//		Car car = manager.find(Car.class, 101);
+//		if (car != null) {
+//			Engine e1 = car.getEngine();
+//			car.setEngine(null);
+//			manager.remove(car);
+//			transaction.commit();
+//		}
+//
+////*************************Deleting car*********************
+//		transaction.begin();
+//		Car car1 = manager.find(Car.class, 10.1);
+//		if (car != null) {
+//			manager.remove(car1);
+//			transaction.commit();
+//		}
+//
+//		transaction.begin();
+//		Car c2 = manager.find(Car.class, 102);
+//		if (c2 != null) {
+//			c2.setPrice(1209999);
+//			Engine e2 = c2.getEngine();
+//			e2.setFuel("Hybrid");
+//			transaction.commit();
+//		}
 
 	}
 
