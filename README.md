@@ -14,6 +14,8 @@ A starter project demonstrating how to use Hibernate (JPA) with a relational dat
 - Testing
 - Contributing
 - License
+
+  
 ## About
 This project showcases a minimal but practical setup for using Hibernate (JPA) in a Java application. It is intended as a reference or starting point for applications that need object-relational mapping, transaction management, and basic CRUD operations.
 ## Features
