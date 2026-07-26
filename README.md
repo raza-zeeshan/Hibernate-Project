@@ -1,6 +1,5 @@
 # Hibernate-Project
 
-
 A starter project demonstrating how to use Hibernate (JPA) with a relational database in Java. This repository contains example entity mappings, DAO/service layers, and configuration to help you get started building applications with Hibernate.
 
 ## Table of Contents
