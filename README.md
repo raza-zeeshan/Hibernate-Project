@@ -28,10 +28,8 @@ This project showcases a minimal but practical setup for using Hibernate (JPA) i
 - A relational database (e.g., PostgreSQL, MySQL, H2 for in-memory testing)
 If you are unsure which build tool the project uses, check for a `pom.xml` (Maven) or `build.gradle` / `settings.gradle` (Gradle) file in the repository root.
 
-
 ## Getting Started
 1. Clone the repository:
-
 
 ```bash
 git clone https://github.com/raza-zeeshan/Hibernate-Project.git
