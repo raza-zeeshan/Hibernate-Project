@@ -22,11 +22,13 @@ This project showcases a minimal but practical setup for using Hibernate (JPA) i
 - Transaction management using JPA/Hibernate
 - Example configuration for local development
 
+
 ## Prerequisites
 - Java 8 or higher (Java 11+ recommended)
 - Maven or Gradle (depending on the build used in this repo)
 - A relational database (e.g., PostgreSQL, MySQL, H2 for in-memory testing)
 If you are unsure which build tool the project uses, check for a `pom.xml` (Maven) or `build.gradle` / `settings.gradle` (Gradle) file in the repository root.
+
 
 ## Getting Started
 1. Clone the repository:
